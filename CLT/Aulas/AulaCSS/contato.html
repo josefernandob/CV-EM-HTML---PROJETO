@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato - Formulário</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container my-4">
+        <h2 class="mb-4">Formulário de Contato</h2>
+        <form id="contactForm" novalidate>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required />
+                    <div class="invalid-feedback">Por favor, insira seu nome.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="sobrenome" class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" id="sobrenome" name="sobrenome" required />
+                    <div class="invalid-feedback">Por favor, insira seu sobrenome.</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" required
+                    pattern="^\(\d{2}\) \d{4,5}-\d{4}$" />
+                <div class="invalid-feedback">Por favor, insira um telefone válido no formato (00) 00000-0000.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="exemplo@dominio.com" required />
+                <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
+                <div class="invalid-feedback">Por favor, escreva uma mensagem.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="lingua" class="form-label">Língua aplicada no serviço</label>
+                <select class="form-select" id="lingua" name="lingua" required>
+                    <option value="" selected disabled>Escolha uma língua</option>
+                    <option value="ingles">Inglês</option>
+                    <option value="espanhol">Espanhol</option>
+                    <option value="frances">Francês</option>
+                    <option value="portugues">Português (pt-br)</option>
+                </select>
+                <div class="invalid-feedback">Por favor, selecione uma língua.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="upload" class="form-label">Upload do protótipo (PDF, DOC, DOCX, JPEG, PNG)</label>
+                <input class="form-control" type="file" id="upload" name="upload" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png" required />
+                <div class="invalid-feedback">Por favor, envie um arquivo válido.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Linguagens preferidas (escolha múltipla)</label>
+                <select class="form-select" id="linguagens" name="linguagens" multiple required>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="php">PHP</option>
+                </select>
+                <div class="invalid-feedback">Por favor, selecione pelo menos uma linguagem.</div>
+            </div>
+
+            <fieldset class="mb-3">
+                <legend class="col-form-label pt-0">Tipo de banco de dados recomendado</legend>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="banco" id="banco-relacional" value="relacional" required>
+                    <label class="form-check-label" for="banco-relacional">Relacional</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="banco" id="banco-nosql" value="nosql" required>
+                    <label class="form-check-label" for="banco-nosql">NoSQL</label>
+                </div>
+                <div class="invalid-feedback">Por favor, escolha um tipo de banco de dados.</div>
+            </fieldset>
+
+            <div class="mb-3">
+                <label for="turno" class="form-label">Turno de preferência para reuniões</label>
+                <select class="form-select" id="turno" name="turno" required>
+                    <option value="" selected disabled>Selecione um turno</option>
+                    <option value="manha">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                </select>
+                <div class="invalid-feedback">Por favor, selecione um turno.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="horario" class="form-label">Melhor horário sugerido para reuniões</label>
+                <input type="time" class="form-control" id="horario" name="horario" required />
+                <div class="invalid-feedback">Por favor, informe um horário válido.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="dataEntrega" class="form-label">Previsão de entrega desejada</label>
+                <input type="date" class="form-control" id="dataEntrega" name="dataEntrega" required />
+                <div class="invalid-feedback">Por favor, informe uma data válida.</div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="reset" class="btn btn-secondary">Limpar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (() => {
+            'use strict';
+
+            // Máscara simples para telefone
+            const telefoneInput = document.getElementById('telefone');
+            telefoneInput.addEventListener('input', e => {
+                let v = e.target.value.replace(/\D/g, '');
+                if (v.length > 11) v = v.slice(0, 11);
+                v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
+                v = v.replace(/(\d{4,5})(\d{4})$/, '$1-$2');
+                e.target.value = v;
+            });
+
+            // Validação do formulário Bootstrap
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+        })();
+    </script>
+</body>
+
+</html>

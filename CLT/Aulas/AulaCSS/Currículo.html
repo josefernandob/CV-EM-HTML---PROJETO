@@ -2,60 +2,74 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Fernando</title>
-    <link rel="shortcut icon" type="image/png" href="https://image.pngaaa.com/934/7287934-middle.png">
-    <link rel="stylesheet" href="curriculo.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>José Fernando - Currículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="https://image.pngaaa.com/934/7287934-middle.png" />
 </head>
 
 <body>
-    <center>
-        <h1>José Fernando Bezerra da Silva</h1>
-        <img src="imagens/FotoApresentação.jpg" alt="Foto de Perfil" title="Foto de Perfil" height="300" width="300"
-            style="border-radius: 50%">
-        <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">José Fernando</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="sobre.html" target="main" onclick="setActive(this)">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experiencia.html" target="main" onclick="setActive(this)">Experiência</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="habilidades.html" target="main" onclick="setActive(this)">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html" target="main" onclick="setActive(this)">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <hr>
-
-        <p>
-
-            <strong>Análise e Desenvolvimento de Sistemas</strong> - FACULDADE SENAC.<br>
-            <strong>Endereço:</strong> Recife- PE, Várzea.<br>
-            <strong>Telefone:</strong> <a href="tel:+(81) 9 8431-3700">(81) 9 8431-3700</a>  <br>
-            <strong>Email:</strong> <a href="mailto: Josefernandobezerrads@gmail.com">Josefernandobezerrads@gmail.com</a> <br> <br>
+    <main class="container my-4 text-center">
+        <h1 class="mb-3">José Fernando Bezerra da Silva</h1>
+        <img src="imagens/FotoApresentação.jpg" alt="Foto de Perfil" title="Foto de Perfil" class="rounded-circle mb-3"
+            width="300" height="300" />
+        <p class="lead">
+            <strong>Análise e Desenvolvimento de Sistemas</strong> - FACULDADE SENAC.<br />
+            <strong>Endereço:</strong> Recife- PE, Várzea.<br />
+            <strong>Telefone:</strong> <a href="tel:+5581984313700">(81) 9 8431-3700</a><br />
+            <strong>Email:</strong> <a href="mailto:Josefernandobezerrads@gmail.com">Josefernandobezerrads@gmail.com</a><br />
         </p>
 
-
-
-        <a href="https://www.linkedin.com/in/josefernando13/" target="_blank">
-            <img src="imagens/LinkedIn-Logo.wine.png" alt="Linkedin de Fernando" height="70px">
-        </a>
-        <a href="https://github.com/josefernandob" target="_blank">
-            <img src="imagens/GitHub-PNG-Pic-Background.png" alt="GitHub de Fernando" height="50px">
-        </a>
-
-        <hr>
-
-        <div id="Referências" style="border: 2px solid #383b4d; padding: 10px; margin: 10px auto; width: 20%;">
-
-            <a href="Sobre.html" target="main"> Sobre mim</a> |
-            <a href="Experiencia.html" target="main"> Experiência Profissional</a> |
-            <a href="Habilidades.html" target="main"> Habilidades</a>
-
+        <div class="mb-4">
+            <a href="https://www.linkedin.com/in/josefernando13/" target="_blank" rel="noopener noreferrer" class="me-3">
+                <img src="imagens/LinkedIn-Logo.wine.png" alt="LinkedIn de Fernando" height="50" />
+            </a>
+            <a href="https://github.com/josefernandob" target="_blank" rel="noopener noreferrer">
+                <img src="imagens/GitHub-PNG-Pic-Background.png" alt="GitHub de Fernando" height="40" />
+            </a>
         </div>
 
-        
-        <iframe src="Sobre.html" name="main" width="600px" height="400px">  </iframe>
+        <iframe name="main" src="sobre.html" frameborder="0" width="100%" height="600px" class="border rounded"></iframe>
+    </main>
 
-        <br>
+    <footer class="bg-primary text-white text-center py-3 mt-4">
+        © 2025 José Fernando. Todos os direitos reservados.
+    </footer>
 
-        <hr>
-
-        <footer>Copyright © 2025 José Fernando. Todos os Direitos Reservados.</footer>
-    </center>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function setActive(link) {
+            document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+            link.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>
